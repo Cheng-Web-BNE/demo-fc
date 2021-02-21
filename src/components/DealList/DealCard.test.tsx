@@ -1,8 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import DealCard from './DealCard';
-import { IDealBase } from '../../interfaces/deal';
+import {
+    IDealBase
+} from '../../interfaces/deal';
 import ReactDOM from 'react-dom';
+import DealCardList from '.';
+import { shallow, mount, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
 
 // demo deal
 const currentDeal: IDealBase = {
@@ -19,14 +24,19 @@ const currentDeal: IDealBase = {
 }   
 // demo array of deals (simulating api result)
 const deals: Array<IDealBase> = [currentDeal, currentDeal, currentDeal, currentDeal, currentDeal, currentDeal];
-test('renders learn react link', () => {
-    render(<DealCard deal={currentDeal}/>);
-    const linkElement = screen.getByText(/Deal expires/i);
-    expect(linkElement).toBeInTheDocument();
+
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<DealCardList deals={deals} />, div);
+    ReactDOM.unmountComponentAtNode(div);
 });
 
-test('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<DealCard deal={currentDeal} />, div);
-    ReactDOM.unmountComponentAtNode(div);
+describe('', () => {
+    const wrapper = shallow(<DealCard deal={currentDeal} />);
+
+    const text = wrapper.text();
+
+    it('renders the title', () => {
+        expect(text).toMatch(/FREE DATE CHANGES/);
+    });
 });

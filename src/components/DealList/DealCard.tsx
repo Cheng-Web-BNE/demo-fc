@@ -29,10 +29,26 @@ interface DealCardProps {
  * @param {IDealBase} deal the deal data to be displayed
  */
 const DealCard: React.FC<DealCardProps> = ({ deal }) => {
+	const [priceAndDetails, setPriceAndDetails] = useState<boolean>(false);
+	const [priceAndSloganWithoutRatings, setPriceAndSloganWithoutRatings] = useState<boolean>(false);
+	const [noPrice, setNoPrice] = useState<boolean>(false);
+	const [cardVersion, setCardVersion] = useState<Number>();
 
-	// const priceAndDetails
-	// const priceAndSloganWithoutRatings
-	// const noPrice
+	// useEffect(
+	// 	() => {
+	// 		// if ()
+	// 		// else if()
+	// 		// set priceAndDetails || priceAndSloganWithoutRatings || noPrice
+	// 	},
+	// 	[deal]
+	// )
+
+	// useEffect(
+	// 	() => {
+	// 		// setCardVersion
+	// 	},
+	// 	[priceAndDetails, priceAndSloganWithoutRatings, noPrice]
+	// )
 	
 	const useStyles = createUseStyles({
 		card: {
@@ -45,9 +61,11 @@ const DealCard: React.FC<DealCardProps> = ({ deal }) => {
 		return (
 			<div className={styles['card__footer-container']}>
 				<FireOutlined />
-				{!!date && <span className={styles['card__footer-date']}>
-					Deal expires in {date ? date : ''} days
-				</span>}
+				{!!date && 
+					<span className={styles['card__footer-date']}>
+						Deal expires in {date ? date : ''} days
+					</span>
+				}
 				<a href={link ? link : '#'}>
 					<span className={styles['card__footer-link']}>View</span>
 				</a>
