@@ -1,0 +1,170 @@
+
+.card-wrapper {
+    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.54);
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0px 5px 12px -1px rgba(0, 0, 0, 0.54);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
+    margin: 7px 7px;
+}
+
+.card {
+    width: 380px;
+    height: 332px;
+    border-radius: 5px 5px 0 0;
+    background-image: url('../../images/bg-cairns.png');
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__title {
+        color: white;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding-top: 70px;
+        font-size: 25px;
+        border-radius: 1px;
+        &-text {
+            background-color: #d50118;
+            padding: 2px 10px 2px 5px;
+            font-weight: bolder;
+            position: relative;
+            &::after {
+                content: '*';
+                font-size: 12px;
+                position: absolute;
+                margin-right: 5px;
+            }
+        }
+    }
+    &__price {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 35px;
+        &-container {
+            position: relative;
+        }
+        &-number {
+            width: 52px;
+            height: 66px;
+            margin: 0 2px 0 2px;
+            color: #d50118;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            font-weight: bolder;
+            position: relative;
+            background-color: rgba(255,255,255,0.6);
+            background-size: 100% 50%;
+            border-radius: 5px;
+            &::before {
+                content: '';
+                background-color: white;
+                position: absolute;
+                height: 50%;
+                top: 50%;
+                width: 100%;
+                border-top: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 0 0 5px 5px;
+            }
+        }
+        &-decoration {
+            font-size: 5px;
+            font-weight: normal;
+            position: absolute;
+            display: flex;
+            color: rgba(0, 0, 0, 0.2);
+            justify-content: space-between;
+            width: 80%;
+        }
+        span:last-child {
+            margin-right: 0;
+            &::after {
+                content: '*';
+                color: #d50118;
+                position: absolute;
+                font-size: 18px;
+                top: 15%;
+                right: 5%;
+            }
+        }
+        span:first-child {
+            div:first-child {
+                font-size: 16px;
+                bottom: 20px;
+            }
+        }
+    }
+    &__slogan {
+        height: 115px;
+        background-color: #d50118;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-details {
+            color: white;
+            margin: 0;
+        }
+        h3:first-child {
+            margin-top: 15px;
+        }
+    }
+    &__info {
+        width: 100%;
+        margin: 8px 0 8px 0;
+        display: flex;
+        justify-content: center;
+        &-text {
+            color: white;
+            margin-right: 10px;
+        }
+        :global {
+            .anticon svg {
+                color: white;
+                margin-right: 5px;
+            }
+        }
+    }
+    &__disclaimer {
+        color: white;
+        font-size: 8px;
+    }
+    &__footer {
+        background-color: white;
+        height: 48px;
+        border-radius: 0 0 5px 5px;
+        display: flex;
+        align-items: center;
+        &-container {
+            width: 100%;
+            padding: 0 15px 0 15px;
+        }
+        &-date {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.54);
+        }
+        &-link {
+            float: right;
+            color: #0072EA;
+            font-size: 0.875rem;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+        }
+        :global {
+            .anticon svg {
+                color: red;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.deal-list {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
